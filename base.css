@@ -1,0 +1,79 @@
+/* styles/base.css */
+/* v2.0 — UI stabilization + layering sanity */
+
+/* ---------------------------------- */
+/* Highlight styling */
+/* ---------------------------------- */
+
+span[data-textend="highlight"],
+.textend-highlight {
+  background: rgba(255, 230, 0, 0.45);
+  border-radius: 2px;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+/* ---------------------------------- */
+/* GLOBAL UI LAYER RULES */
+/* ---------------------------------- */
+
+/* Highest level UI (modals, upgrade, command palette) */
+#textend-command,
+.textend-modal,
+[id^="textend-"] {
+  z-index: 1000000 !important;
+}
+
+/* Panels (sidebar, export, clusters, timeline) */
+#textend-sidebar,
+#textend-export-panel {
+  z-index: 999999;
+}
+
+/* Floating button */
+#textend-toggle {
+  z-index: 999997;
+}
+
+/* Scroll markers */
+.textend-marker-layer {
+  z-index: 999996;
+}
+
+/* ---------------------------------- */
+/* Prevent accidental click-through */
+/* ---------------------------------- */
+
+#textend-command,
+#textend-sidebar,
+#textend-export-panel {
+  pointer-events: auto;
+}
+
+/* Everything else stays normal */
+body {
+  pointer-events: auto;
+}
+
+/* ---------------------------------- */
+/* Command palette polish */
+/* ---------------------------------- */
+
+#textend-command input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background: #222;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+
+/* ---------------------------------- */
+/* Smooth UI feel */
+/* ---------------------------------- */
+
+* {
+  transition: background 0.12s ease, opacity 0.12s ease;
+}
