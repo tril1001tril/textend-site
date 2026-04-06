@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Textend</title>
 
-  <link rel="stylesheet" href="styles.css" />
-
   <style>
     body {
       margin: 0;
@@ -54,11 +52,6 @@
       background: #4CAF50;
       color: #000;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
   </style>
 </head>
 
@@ -71,14 +64,25 @@
       A futuristic knowledge layer for the web.
     </p>
 
-    <!-- TEMP TEST BUTTONS (simulate Stripe redirect) -->
-    <a class="btn prime" href="success.html?tier=prime">
+    <a class="btn prime"
+       href="https://buy.stripe.com/fZu4gyenfdnt5r2fqC0gw01">
       Upgrade to Prime
     </a>
 
-    <a class="btn nexus" href="success.html?tier=nexus">
+    <a class="btn nexus"
+       href="https://buy.stripe.com/9B6fZgdjbbflbPq3HU0gw02">
       Upgrade to Nexus
     </a>
   </div>
+
+  <!-- 🔥 Smooth UX -->
+  <script>
+    document.querySelectorAll("a[href*='stripe']").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.innerText = "Redirecting...";
+        btn.style.opacity = "0.7";
+      });
+    });
+  </script>
 </body>
 </html>
